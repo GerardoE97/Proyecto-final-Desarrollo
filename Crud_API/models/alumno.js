@@ -25,6 +25,14 @@ const alumnoSchema = new mongoose.Schema({
     edad: {
         type:Number,
         required: true
+    },
+    precio: {
+        type:Number,
+        required: true
+    },
+    fechaEntrega: {
+        type:Date,
+        required: true
     }
 });
 
