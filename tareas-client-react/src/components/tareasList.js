@@ -6,8 +6,6 @@ import { Button } from 'react-bootstrap';
 
 
 const TareasList = () => {
-
-
     const [tareas, setTareas] = useState([]);
     const [showForm, setShowForm] = useState(false);
 
@@ -28,7 +26,7 @@ const TareasList = () => {
 
     const createTarea = (data) => {
         try {
-            fetch("https://tareas-api-devsoft.azurewebsites.net/tareas", {
+            fetch(`http://localhost:3001/alumnos`, {//https://tareas-api-devsoft.azurewebsites.net/tareas
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -65,7 +63,7 @@ const TareasList = () => {
 
     const updateTarea = (data) => {
         try {
-            fetch(`https://tareas-api-devsoft.azurewebsites.net/tareas/${data._id}`, {
+            fetch(`http://localhost:3001/alumnos/${data._id}`, {//https://tareas-api-devsoft.azurewebsites.net/tareas/${data._id}
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

@@ -5,21 +5,27 @@ import { Button } from 'react-bootstrap';
 const TareasForm = ({ onClickFn }) => {
 
     const [id, setId] = useState("");
-    const [name, setName] = useState("");
-    const [puntos, setPuntos] = useState("");
-    const [materia, setMateria] = useState("");
+    const [nombre, setNombre] = useState("");
+    const [apellido, setApellido] = useState("");
+    const [correo, setCorreo] = useState("");
+    const [carrera, setCarrera] = useState("");
     const [fechaEntrega, setfechaEntrega] = useState("");
+    const [edad, setEdad] = useState("");
+    const [precio, setprecio] = useState("");
 
     const onEnviar = (event) => {
         event.preventDefault()
-        if (id === "" || name === "" || puntos === "" || materia === "" || fechaEntrega === "") alert("No puede dejar ningun campo vacio");
+        if (id === "" || nombre === "" || apellido === "" || correo === "" || carrera === "" || edad === "" || fechaEntrega === "" || precio === "") alert("No puede dejar ningun campo vacio");
         else {
             let data = {
                 id: id,
-                name: name,
-                puntos: puntos,
-                materia: materia,
-                fechaEntrega: fechaEntrega
+                nombre: nombre,
+                apellido: apellido,
+                correo: correo,
+                carrera: carrera,
+                fechaEntrega: fechaEntrega,
+                edad:edad,
+                precio: precio
             };
             onClickFn(data);
         }
@@ -30,27 +36,38 @@ const TareasForm = ({ onClickFn }) => {
             <Row>
                 <Col md={6}  >
                     <Form onSubmit={onEnviar}>
-                        <Form.Group className="mb-3" controlId="name">
-                            <Form.Label>Name</Form.Label>
-                            <Form.Control type="text" placeholder="Enter your name" value={name} onChange={(txt) => setName(txt.target.value)} />
-                            <Form.Text className="text-muted">
-                                Share your name with us
-                            </Form.Text>
-                        </Form.Group>
-
                         <Form.Group className="mb-3" controlId="id">
                             <Form.Label>Id</Form.Label>
                             <Form.Control type="number" placeholder="Id" value={id} onChange={(txt) => setId(txt.target.value)} />
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="subject">
-                            <Form.Label>Subject</Form.Label>
-                            <Form.Control type="text" placeholder="Subject" value={materia} onChange={(txt) => setMateria(txt.target.value)} />
+                        <Form.Group className="mb-3" controlId="nombre">
+                            <Form.Label>Nombre</Form.Label>
+                            <Form.Control type="text" placeholder="Enter your name" value={nombre} onChange={(txt) => setNombre(txt.target.value)} />
+                            <Form.Text className="text-muted">
+                                Nombre porfavor
+                            </Form.Text>
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="Grade">
-                            <Form.Label>Grade</Form.Label>
-                            <Form.Control type="number" placeholder="Grade Points" value={puntos} onChange={(txt) => setPuntos(txt.target.value)} />
+                        <Form.Group className="mb-3" controlId="apellido">
+                            <Form.Label>Apellido</Form.Label>
+                            <Form.Control type="text" placeholder="Enter your apellido" value={apellido} onChange={(txt) => setApellido(txt.target.value)} />
+                            <Form.Text className="text-muted">
+                                Apellido porfavor
+                            </Form.Text>
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="correo">
+                            <Form.Label>Correo</Form.Label>
+                            <Form.Control type="text" placeholder="Enter your email" value={correo} onChange={(txt) => setCorreo(txt.target.value)} />
+                            <Form.Text className="text-muted">
+                                email
+                            </Form.Text>
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="carrera">
+                            <Form.Label>Carrera</Form.Label>
+                            <Form.Control type="text" placeholder="carrera" value={carrera} onChange={(txt) => setCarrera(txt.target.value)} />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="DateTo">
@@ -58,6 +75,15 @@ const TareasForm = ({ onClickFn }) => {
                             <Form.Control type="date" placeholder="Date Sheadule" value={fechaEntrega} onChange={(txt) => setfechaEntrega(txt.target.value)} />
                         </Form.Group>
 
+                        <Form.Group className="mb-3" controlId="Edad">
+                            <Form.Label>Edad</Form.Label>
+                            <Form.Control type="number" placeholder="Edad" value={edad} onChange={(txt) => setEdad(txt.target.value)} />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="DateTo">
+                            <Form.Label>Precio</Form.Label>
+                            <Form.Control type="number" placeholder="Precio" value={precio} onChange={(txt) => setprecio(txt.target.value)} />
+                        </Form.Group>
                         <Button variant="primary" type="submit">
                             Submit
                         </Button>
