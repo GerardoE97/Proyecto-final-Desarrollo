@@ -9,7 +9,9 @@ function createAlumno(req, res){
         apellido: req.body.apellido,
         correo: req.body.correo,
         carrera: req.body.carrera,
-        edad: req.body.edad
+        fechaEntrega: req.body.fechaEntrega,
+        edad: req.body.edad,
+        precio: req.body.precio
     });
     alumno.save( (error,result)=> {
         if (error){
